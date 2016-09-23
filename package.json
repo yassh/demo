@@ -1,0 +1,38 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "bugs": {
+    "url": "https://github.com/yassh/demo/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "browser-sync": "^2.16.0",
+    "csscomb": "^3.1.7",
+    "fixpack": "^2.3.1",
+    "jade-cli": "^0.1.1",
+    "jscs": "^3.0.7",
+    "npm-run-all": "^3.1.0",
+    "rimraf": "^2.5.4"
+  },
+  "homepage": "https://github.com/yassh/demo#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yassh/demo.git"
+  },
+  "scripts": {
+    "clean": "rimraf ./docs",
+    "fix": "npm-run-all fixpack *:fix",
+    "fixpack": "fixpack",
+    "jade:build+watch": "jade ./docs_src --out ./docs --pretty --watch",
+    "js:build+watch": "babel ./docs_src --out-dir ./docs --watch",
+    "js:fix": "jscs ./docs_src --fix",
+    "js:validate": "jscs ./docs_src",
+    "serve": "browser-sync start --server ./docs --files ./docs --directory --no-ghost-mode",
+    "start": "npm-run-all clean -p *:build+watch serve",
+    "test": "npm-run-all *:validate"
+  }
+}
