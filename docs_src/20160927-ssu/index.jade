@@ -1,0 +1,31 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title SpeechSynthesisUtterance
+  body
+    h1 SpeechSynthesisUtterance
+
+    form#form
+      div
+        textarea#text(rows="5")
+      div
+        select#lang
+          option(selected) ja
+          option en
+          option ru
+        button(type="submit") Speak
+        button(type="reset") Reset
+
+    hr
+
+    div Presets:
+      select#presets
+        option
+        option(data-lang="ja") あなたは何をしていますか？
+        option(data-lang="en") What are you doing?
+        option(data-lang="ru") Что вы делаете?
+
+    script(src="index.js")

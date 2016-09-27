@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpeechSynthesisUtterance</title>
+  </head>
+  <body>
+    <h1>SpeechSynthesisUtterance</h1>
+    <form id="form">
+      <div>
+        <textarea id="text" rows="5"></textarea>
+      </div>
+      <div>
+        <select id="lang">
+          <option selected>ja</option>
+          <option>en</option>
+          <option>ru</option>
+        </select>
+        <button type="submit">Speak</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+    <hr>
+    <div>Presets:
+      <select id="presets">
+        <option></option>
+        <option data-lang="ja">あなたは何をしていますか？</option>
+        <option data-lang="en">What are you doing?</option>
+        <option data-lang="ru">Что вы делаете?</option>
+      </select>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
