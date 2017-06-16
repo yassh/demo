@@ -1,21 +1,10 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "bugs": {
-    "url": "https://github.com/yassh/demo/issues"
-  },
   "devDependencies": {
     "browser-sync": "^2.16.0",
     "fixpack": "^2.3.1",
     "npm-run-all": "^3.1.0"
-  },
-  "homepage": "https://github.com/yassh/demo#readme",
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yassh/demo.git"
   },
   "scripts": {
     "fix": "npm-run-all fix:*",
