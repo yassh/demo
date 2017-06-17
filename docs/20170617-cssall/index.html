@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>allプロパティのデモ</title>
+    <style>
+      body {
+        font-size: 200%;
+        font-style: italic;
+        color: red;
+      }
+
+      #target {
+        display: block;
+        border: solid 5px green;
+      }
+      #target::before {
+        content: "#target";
+        display: block;
+        color: white;
+        background-color: green;
+      }
+
+      #target[data-all="initial"] * {
+        all: initial;
+      }
+
+      #target[data-all="unset"] * {
+        all: unset;
+      }
+
+      #target[data-outline="true"] > * {
+        outline: solid 1px red;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const all = document.getElementById('all');
+        const outline = document.getElementById('outline');
+        const target = document.getElementById('target');
+
+        all.addEventListener('change', (event) => {
+          target.setAttribute('data-all', event.target.value);
+        });
+
+        outline.addEventListener('change', (event) => {
+          target.setAttribute('data-outline', event.target.checked ? 'true' : 'false');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      #target * { all:
+      <select id="all">
+        <option value=""></option>
+        <option value="initial">initial</option>
+        <option value="unset">unset</option>
+      </select>
+      }
+    </div>
+
+    <label><input type="checkbox" id="outline">outline</label>
+
+    <div id="target">
+      <h1>h1</h1>
+
+      <p>p<br>br</p>
+
+      <ul>
+        <li>ul>li</li>
+        <li>ul>li</li>
+        <li>ul>li</li>
+      </ul>
+
+      <ol>
+        <li>ol>li</li>
+        <li>ol>li</li>
+        <li>ol>li</li>
+      </ol>
+
+      <table>
+        <tr>
+          <th>th</th>
+          <th>th</th>
+          <th>th</th>
+        </tr>
+        <tr>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+      </table>
+
+      <pre>pre
+pre
+pre</pre>
+
+      <b>b</b>
+
+      <i>i</i>
+
+      <sup>sup</sup>
+
+      <ruby>ruby<rp>rp</rp><rt>rt</rt><rp>rp</rp></ruby>
+
+      <a href="">a</a>
+
+      <button>button</button>
+
+      <textarea>textarea</textarea>
+
+      <input type="submit" value="[type=submit]">
+
+      <input type="text" value="[type=text]">
+
+      <input type="checkbox" value="[type=checkbox]">
+
+      <input type="radio" value="[type=radio]">
+
+      <select>
+        <option>select>option</option>
+        <option>select>option</option>
+        <option>select>option</option>
+      </select>
+
+      <details>
+        <summary>summary</summary>
+        details
+      </details>
+
+      <figure>
+        <figcaption>figcaption</figcaption>
+        figure
+        <img src="../assets/img/YUSEI_9V9A5379_TP_V.jpg" width="100" alt="img">
+      </figure>
+    </div>
+  </body>
+</html>
