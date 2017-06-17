@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-document.getElementById('greet').addEventListener('click', function () {
-  alert('こんにちは！');
-});
+document.getElementById('greet').addEventListener('click', () => {
+  alert('こんにちは！')
+})

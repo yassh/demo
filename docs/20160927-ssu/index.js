@@ -1,30 +1,30 @@
-'use strict';
+'use strict'
 
-var $form = document.getElementById('form');
-var $text = document.getElementById('text');
-var $lang = document.getElementById('lang');
+const $form = document.getElementById('form')
+const $text = document.getElementById('text')
+const $lang = document.getElementById('lang')
 
-$form.addEventListener('submit', function (event) {
-  event.preventDefault();
+$form.addEventListener('submit', (event) => {
+  event.preventDefault()
 
   try {
-    var ssu = new SpeechSynthesisUtterance();
-    ssu.text = $text.value;
-    ssu.lang = $lang.value;
-    speechSynthesis.speak(ssu);
+    const ssu = new SpeechSynthesisUtterance()
+    ssu.text = $text.value
+    ssu.lang = $lang.value
+    speechSynthesis.speak(ssu)
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-});
+})
 
-var $presets = document.getElementById('presets');
+const $presets = document.getElementById('presets')
 
-$presets.addEventListener('change', function (event) {
-  var $this = event.target;
-  var $selectedOption = $this.selectedOptions[0];
+$presets.addEventListener('change', (event) => {
+  const $this = event.target
+  const $selectedOption = $this.selectedOptions[0]
 
-  $text.value = $selectedOption.value;
-  $lang.value = $selectedOption.dataset.lang;
+  $text.value = $selectedOption.value
+  $lang.value = $selectedOption.dataset.lang
 
-  $this.selectedIndex = 0;
-});
+  $this.selectedIndex = 0
+})
