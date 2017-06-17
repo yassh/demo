@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "devDependencies": {
     "browser-sync": "^2.16.0",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
     "fixpack": "^2.3.1",
     "npm-run-all": "^3.1.0"
   },
   "scripts": {
     "fix": "npm-run-all fix:*",
+    "fix:js": "eslint . --fix",
     "fix:pack": "fixpack",
+    "lint:js": "eslint .",
     "serve": "browser-sync start --server ./docs --files ./docs --directory --no-ghost-mode",
     "start": "npm-run-all serve",
     "test": "npm-run-all lint:*"
