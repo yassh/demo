@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>overflow-xとoverflow-yのデモ</title>
+    <style>
+      .target {
+        border: dashed 5px red;
+        width: 200px;
+        height: 200px;
+      }
+      .target img {
+        vertical-align: top;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>overflow-xとoverflow-yのデモ</h1>
+
+      <h2>指定値</h2>
+      <div>
+        .target {<br>
+          overflow-x: <select v-model="overflowX"><option v-for="o in options">{{ o }}</option></select>;<br>
+          overflow-y: <select v-model="overflowY"><option v-for="o in options">{{ o }}</option></select>;<br>
+        }
+      </div>
+
+      <h2>計算値</h2>
+      <div>
+        .target {<br>
+          overflow-x: {{ overflowXComputed }};<br>
+          overflow-y: {{ overflowYComputed }};<br>
+        }
+      </div>
+
+      <h2>描画</h2>
+      <div class="target" :style="{ 'overflow-x': overflowX, 'overflow-y': overflowY }">
+        <img src="../assets/img/YUSEI_9V9A5379_TP_V.jpg" alt="">
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          options: [
+            'visible',
+            'hidden',
+            'scroll',
+            'auto',
+          ],
+          overflowX: 'visible',
+          overflowY: 'visible',
+          overflowXComputed: '',
+          overflowYComputed: '',
+        },
+        created() {
+          setInterval(() => {
+            const style = window.getComputedStyle(document.querySelector('.target'));
+
+            this.overflowXComputed = style.getPropertyValue('overflow-x');
+            this.overflowYComputed = style.getPropertyValue('overflow-y');
+          }, 100);
+        },
+      });
+    </script>
+  </body>
+</html>
