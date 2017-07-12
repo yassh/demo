@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSSだけで時間差表示</title>
+    <style>
+      @keyframes show {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+      }
+
+      .wait1s { animation: show 1s step-end; }
+      .wait2s { animation: show 2s step-end; }
+      .wait3s { animation: show 3s step-end; }
+      .wait4s { animation: show 4s step-end; }
+      .wait5s { animation: show 5s step-end; }
+    </style>
+  </head>
+  <body>
+    <h1>CSSだけで時間差表示</h1>
+
+    <p class="wait1s">1秒</p>
+    <p class="wait2s">2秒</p>
+    <p class="wait3s">3秒</p>
+    <p class="wait4s">4秒</p>
+    <p class="wait5s">5秒</p>
+  </body>
+</html>
