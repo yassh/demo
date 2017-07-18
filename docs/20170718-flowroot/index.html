@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>display: flow-rootのデモ</title>
+    <style>
+      section {
+        overflow: hidden;
+      }
+
+      .container {
+        background: red;
+        margin: 20px;
+      }
+
+      .flow-root {
+        display: flow-root;
+      }
+
+      .margin {
+        background: orange;
+        margin: 20px;
+      }
+
+      .float {
+        background: orange;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><code>display: flow-root</code>のデモ</h1>
+
+    <section>
+      <h2><code>.container { display: block }</code></h2>
+
+      <div class="container">
+        <div class="margin">margin: 20px</div>
+      </div>
+
+      <div class="container">
+        <div class="float">float: left</div>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>.container { display: flow-root }</code></h2>
+
+      <div class="container flow-root">
+        <div class="margin">margin: 20px</div>
+      </div>
+
+      <div class="container flow-root">
+        <div class="float">float: left</div>
+      </div>
+    </section>
+  </body>
+</html>
