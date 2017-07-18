@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>letter-spacingプロパティのテスト</title>
+    <style>
+      .test {
+        border: solid 2px red;
+      }
+
+      .text-align-right {
+        text-align: right;
+      }
+
+      .letter-spacing-positive {
+        letter-spacing: 1em;
+      }
+
+      .letter-spacing-negative {
+        letter-spacing: -0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>letter-spacingプロパティのテスト</h1>
+
+    <p><a href="https://www.w3.org/TR/2013/WD-css-text-3-20131010/">CSS Text Module Level 3</a>にはこう書かれている。</p>
+
+    <blockquote cite="https://www.w3.org/TR/2013/WD-css-text-3-20131010/#letter-spacing-property">
+      <p>Letter-spacing must not be applied at the beginning or at the end of a line.</p>
+    </blockquote>
+
+    <p>ブラウザの実装はどうか。</p>
+
+    <section>
+      <h2><code>letter-spacing: normal</code></h2>
+      <div class="test">国国国国国</div>
+      <div class="test text-align-right">国国国国国</div>
+    </section>
+
+    <section>
+      <h2><code>letter-spacing: 1em</code></h2>
+      <div class="test letter-spacing-positive">国国国国国</div>
+      <div class="test letter-spacing-positive text-align-right">国国国国国</div>
+    </section>
+
+    <section>
+      <h2><code>letter-spacing: -0.5em</code></h2>
+      <div class="test letter-spacing-negative">国国国国国</div>
+      <div class="test letter-spacing-negative text-align-right">国国国国国</div>
+    </section>
+  </body>
+</html>
