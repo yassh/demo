@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSSだけで時間差表示（チェックボックスによるトリガー）</title>
+    <style>
+      @keyframes show {
+        to { visibility: visible; }
+      }
+
+      p { visibility: hidden; }
+      :checked ~ .wait1s { animation: show 1s step-end forwards; }
+      :checked ~ .wait2s { animation: show 2s step-end forwards; }
+      :checked ~ .wait3s { animation: show 3s step-end forwards; }
+      :checked ~ .wait4s { animation: show 4s step-end forwards; }
+      :checked ~ .wait5s { animation: show 5s step-end forwards; }
+      /*
+        `animation-fill-mode`を`forwards`にするのがポイント。
+        そうしないと、アニメーションが終わった瞬間に消えてしまう。
+       */
+    </style>
+  </head>
+  <body>
+    <h1>CSSだけで時間差表示（チェックボックスによるトリガー）</h1>
+
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">表示</label>
+
+    <p class="wait1s">1秒</p>
+    <p class="wait2s">2秒</p>
+    <p class="wait3s">3秒</p>
+    <p class="wait4s">4秒</p>
+    <p class="wait5s">5秒</p>
+  </body>
+</html>
