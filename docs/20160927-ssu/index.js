@@ -1,5 +1,3 @@
-'use strict'
-
 const $form = document.getElementById('form')
 const $text = document.getElementById('text')
 const $lang = document.getElementById('lang')

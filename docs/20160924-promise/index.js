@@ -1,5 +1,3 @@
-'use strict'
-
 function delaySay(delay, say) {
   return new Promise(((resolve, reject) => {
     setTimeout(() => {
