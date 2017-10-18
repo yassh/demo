@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>contenteditable - Demo</title>
+    <style>
+      #input {
+        font-size: 150%;
+        border: solid 2px;
+        padding: 0.25em;
+        min-height: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>contenteditable - Demo</h1>
+    <p>色名がその色になるよ。</p>
+    <div id="input" contenteditable="true"></div>
+
+    <script>
+      function htmlEscape(str) {
+        return str
+          .replace(/&/g, '&#38;') // '&amp;'だと'amp'が色名のルーズな正規表現にマッチしてしまうので、'&#38;'にする。以下同様。
+          .replace(/</g, '&#60;')
+          .replace(/>/g, '&#62;')
+          .replace(/"/g, '&#34;')
+          .replace(/'/g, '&#39;');
+      }
+
+      document.getElementById('input').addEventListener('blur', (event) => {
+        const text = event.target.innerText; // event.target.textContentだと改行が消えてしまう
+        console.log(text);
+
+        const html = htmlEscape(text)
+          .replace(/\b[a-z]+\b/ig, (color) => `<span style="color: ${color}">${color}</span>`)
+          .replace(/\n/g, '<br>');
+
+        event.target.innerHTML = html;
+      });
+    </script>
+  </body>
+</html>
