@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Visibility API - Demo</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th, td {
+        border: solid 1px;
+        padding: 0.5em 1em;
+        text-align: center;
+      }
+      .new {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Page Visibility API - Demo</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>document.hidden</th>
+            <th>document.visibilityState</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in log" :class="{ new: item.new }">
+            <td>{{ item.time.toLocaleTimeString() }}</td>
+            <td>{{ item['document.hidden'] }}</td>
+            <td>{{ item['document.visibilityState'] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return { log: [] };
+        },
+        methods: {
+          handleVisibilitychange() {
+            if (document.hidden) this.log.forEach(item => item.new = false);
+
+            this.log.push({
+              time: new Date(),
+              new: true,
+              'document.hidden': document.hidden,
+              'document.visibilityState': document.visibilityState,
+            });
+          },
+        },
+        created() {
+          document.addEventListener('visibilitychange', this.handleVisibilitychange);
+          this.handleVisibilitychange();
+        },
+      });
+    </script>
+  </body>
+</html>
